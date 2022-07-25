@@ -6,8 +6,6 @@ from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from .models import User
 import jwt, datetime
-
-# Create your views here.
  
 class RegisterLectureViews(APIView):
     """ Send serialized registeration data for lecuter """

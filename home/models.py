@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
-
-# Create your models here.
+import uuid
+from .softDelete import SoftDeleteModel
 
 class User(SoftDeleteModel, AbstractUser):
     id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, max_length=100)
@@ -15,6 +15,6 @@ class User(SoftDeleteModel, AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
-    
+
     def __str__(self):
         return self.name
