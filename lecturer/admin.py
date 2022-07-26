@@ -1,3 +1,5 @@
 from django.contrib import admin
+from lecturer.models import Question, File
 
-# Register your models here.
+admin.site.register(Question)
+admin.site.register(File)
