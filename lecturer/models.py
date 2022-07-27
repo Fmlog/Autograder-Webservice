@@ -10,7 +10,7 @@ class Question(SoftDeleteModel):
     lecturer = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'is_lecturer': True})
     title = models.CharField(max_length=255, null=False)
     description = models.CharField(max_length=255, null=False)
-    function = models.CharField(max_length=255)
+    function = models.CharField(max_length=255, default="Function")
     test_case = models.JSONField()
     test_result = models.JSONField()
     language = models.CharField(max_length=255, null=True, blank=True)
@@ -19,7 +19,6 @@ class Question(SoftDeleteModel):
         return self.title
 
 class File(models.Model):
-
     id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, max_length=100)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     file = models.FileField(blank=False, null=False)

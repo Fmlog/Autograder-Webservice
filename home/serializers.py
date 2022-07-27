@@ -5,7 +5,7 @@ class UserSerializers(serializers.ModelSerializer):
     """ Serializes user data"""
     class Meta:
         """ Meta class for a typical user"""
-        models = User
+        model = User
         """Typical user has following attributes:"""
         fields = ('id', 'name', 'email', 'password', 'is_lecturer', 'is_student', 'is_admin')
         extra_kwargs = {
