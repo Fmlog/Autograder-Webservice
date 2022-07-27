@@ -6,8 +6,6 @@ from home.models import User
 import os
 
 class Question(SoftDeleteModel):
-
-
     id = models.CharField(primary_key=True, default=uuid.uuid4, editable=False, unique=True, max_length=100)
     lecturer = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'is_lecturer': True})
     title = models.CharField(max_length=255, null=False)
